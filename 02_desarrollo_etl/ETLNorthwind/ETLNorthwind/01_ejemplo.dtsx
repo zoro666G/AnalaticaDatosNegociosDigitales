@@ -1,0 +1,915 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/9/2025 4:59:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MSI"
+  DTS:CreatorName="MSI\gusta"
+  DTS:DTSID="{6669E070-3832-4B55-B7F7-39E957302DCB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="01_ejemplo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{8D06E612-38F6-4B91-B8C9-EB315F8FF6D5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conexión de datos]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1B46E376-EAE0-4B40-AC30-7FBB7E68CBED}"
+      DTS:ObjectName="Conexión de datos">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Initial Catalog=northwind;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-01_ejemplo-{1B46E376-EAE0-4B40-AC30-7FBB7E68CBED}Conexión de datos;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conexión de datos 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{170728EB-26AD-4E88-A2DF-FFFA61A96F25}"
+      DTS:ObjectName="Conexión de datos 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Initial Catalog=northwind;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-01_ejemplo-{170728EB-26AD-4E88-A2DF-FFFA61A96F25}Conexión de datos 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conexión de datos 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4F688A34-2D28-497D-BD67-1C37FECF7598}"
+      DTS:ObjectName="Conexión de datos 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Initial Catalog=northwind;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-01_ejemplo-{4F688A34-2D28-497D-BD67-1C37FECF7598}Conexión de datos 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[INFORMEPRODUCTOS]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{712BE40F-01AC-4A97-BAA8-BA4F01659730}"
+      DTS:ObjectName="INFORMEPRODUCTOS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2058"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Analitica_De_Datos_Para_Negocios_Digitales\02_desarrollo_etl\informes\reporte_productos_clientes.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductID"
+              DTS:DTSID="{9AF7B628-46AF-46A1-B3D6-55993C667935}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductName"
+              DTS:DTSID="{F4DAA227-05C2-45C9-81ED-DBA18ABC2248}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CategoryName"
+              DTS:DTSID="{61588B2E-CE07-4FE5-8D4A-8DCE6353A089}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitPrice"
+              DTS:DTSID="{245780FE-13D5-407B-AADC-34974929A452}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitsInStock"
+              DTS:DTSID="{F78B2718-205C-4D56-95D9-57A16AE2ABF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Importe"
+              DTS:DTSID="{05BF8FB8-CB89-4CE5-9DEB-18C3AE54F793}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.bdpruebaetl]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{90C7F6A9-AA98-449D-9CBA-F78B9B92405B}"
+      DTS:ObjectName="LocalHost.bdpruebaetl">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=bdpruebaetl;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-01_ejemplo-{90C7F6A9-AA98-449D-9CBA-F78B9B92405B}LocalHost.bdpruebaetl;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.northwind]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D19C662B-5AD5-44F7-8E43-B6DAA092C8B0}"
+      DTS:ObjectName="LocalHost.northwind">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=northwind;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-01_ejemplo-{D19C662B-5AD5-44F7-8E43-B6DAA092C8B0}LocalHost.northwind;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\BORRAR DATOS DE LA TABLA tblprueba"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{AE16DAC1-4CBD-4C45-8FBC-BD972BCB4999}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="BORRAR DATOS DE LA TABLA tblprueba"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{90C7F6A9-AA98-449D-9CBA-F78B9B92405B}"
+          SQLTask:SqlStatementSource="truncate table tblprueba;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C59ABA29-9A50-458B-9FED-03C1BD690833}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="OBTENER DATOS DE PRODUCTOS Y CATEGORIAS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="2058"
+              name="INFORME DE PRODUCTOS CATEGORIA"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[INFORMEPRODUCTOS]"
+                  connectionManagerRefId="Package.ConnectionManagers[INFORMEPRODUCTOS]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].Columns[CategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CategoryName"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[CategoryName]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[CategoryName]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].Columns[UnitsInStock]"
+                      cachedDataType="i2"
+                      cachedName="UnitsInStock"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[UnitsInStock]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitsInStock]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].Columns[Importe]"
+                      cachedDataType="cy"
+                      cachedName="Importe"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[Importe]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[Importe]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[CategoryName]"
+                      dataType="wstr"
+                      length="15"
+                      name="CategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[UnitsInStock]"
+                      dataType="i2"
+                      name="UnitsInStock" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input].ExternalColumns[Importe]"
+                      dataType="cy"
+                      name="Importe" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ORIGEN PRODUCTOS CATEGORIAS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT p.ProductID, p.ProductName, c.CategoryName, p.UnitPrice, p.UnitsInStock, (p.UnitPrice * p.UnitsInStock) as Importe
+FROM Products as p
+INNER JOIN Categories as c
+ON p.CategoryID = c.CategoryID;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      length="40"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[CategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
+                      length="15"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[CategoryName]"
+                      name="CategoryName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitsInStock]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitsInStock]"
+                      name="UnitsInStock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[Importe]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[Importe]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[Importe]"
+                      name="Importe"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
+                      dataType="wstr"
+                      length="15"
+                      name="CategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
+                      dataType="i2"
+                      name="UnitsInStock" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].ExternalColumns[Importe]"
+                      dataType="cy"
+                      name="Importe" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                      name="CategoryName" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
+                      dataType="i2"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
+                      name="UnitsInStock" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[Importe]"
+                      dataType="cy"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[Importe]"
+                      name="Importe" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="TABLA tblprueba"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tblprueba]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.bdpruebaetl]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.bdpruebaetl]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].Columns[CategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CategoryName"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[CategoryName]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[CategoryName]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].Columns[UnitsInStock]"
+                      cachedDataType="i2"
+                      cachedName="UnitsInStock"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[UnitsInStock]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[UnitsInStock]" />
+                    <inputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].Columns[Importe]"
+                      cachedDataType="cy"
+                      cachedName="Importe"
+                      externalMetadataColumnId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[Importe]"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output].Columns[Importe]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[CategoryName]"
+                      dataType="wstr"
+                      length="15"
+                      name="CategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[UnitsInStock]"
+                      dataType="i2"
+                      name="UnitsInStock" />
+                    <externalMetadataColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input].ExternalColumns[Importe]"
+                      dataType="cy"
+                      name="Importe" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS.Paths[Multicast Output 1]"
+              endId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA.Inputs[Flat File Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS.Paths[Multicast Output 2]"
+              endId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS.Paths[OLE DB Source Output]"
+              endId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast.Inputs[Multicast Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{3879F125-F94A-4E16-92E7-DDF226B36C0B}"
+      DTS:From="Package\BORRAR DATOS DE LA TABLA tblprueba"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="334.4,41.6"
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS"
+          TopLeft="254.166652779613,174.199998788635" />
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package\BORRAR DATOS DE LA TABLA tblprueba"
+          TopLeft="276.666651550267,29.4666664617592" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="418.01665216494,71.0666664617592">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,103.133332326876"
+              Start="0,0"
+              End="0,95.6333323268758">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,95.6333323268758" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="259.2,41.6"
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS"
+          TopLeft="279.166651413673,213.199998517434" />
+        <NodeLayout
+          Size="276.8,41.6"
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\INFORME DE PRODUCTOS CATEGORIA"
+          TopLeft="159.351843145251,383.644441776629" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba"
+          TopLeft="471.794846017138,387.01061746625" />
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\Multicast"
+          TopLeft="354.629610253522,283.407405572614" />
+        <EdgeLayout
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS.Paths[OLE DB Source Output]"
+          TopLeft="411.498130833598,254.799998517434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.6074070551806"
+              Start="0,0"
+              End="0,21.1074070551806">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1074070551806" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,2.55370352759029,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS.Paths[Multicast Output 1]"
+          TopLeft="414.229610253522,325.007405572614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-116.477767108271,58.6370362040146"
+              Start="0,0"
+              End="-116.477767108271,51.1370362040146">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.3185181020073" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.3185181020073"
+                    Point2="0,29.3185181020073"
+                    Point3="-4,29.3185181020073" />
+                  <mssgle:LineSegment
+                    End="-112.477767108271,29.3185181020073" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-112.477767108271,29.3185181020073"
+                    Point2="-116.477767108271,29.3185181020073"
+                    Point3="-116.477767108271,33.3185181020073" />
+                  <mssgle:LineSegment
+                    End="-116.477767108271,51.1370362040146" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS.Paths[Multicast Output 2]"
+          TopLeft="432.762943586855,325.007405572614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.831902430282,62.0032118936355"
+              Start="0,0"
+              End="117.831902430282,54.5032118936355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.2940255142248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.2940255142248"
+                    Point2="0,25.2940255142248"
+                    Point3="4,25.2940255142248" />
+                  <mssgle:LineSegment
+                    End="113.831902430282,25.2940255142248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113.831902430282,25.2940255142248"
+                    Point2="117.831902430282,25.2940255142248"
+                    Point3="117.831902430282,29.2940255142248" />
+                  <mssgle:LineSegment
+                    End="117.831902430282,54.5032118936355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\ORIGEN PRODUCTOS CATEGORIAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\OBTENER DATOS DE PRODUCTOS Y CATEGORIAS\TABLA tblprueba">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
